@@ -1,0 +1,65 @@
+CareHub - project
+
+- kartoteka pacjentów
+    - personal info
+        - adres
+        - keysafe number
+    - medical info
+        - choroby
+        - mobility
+        - medications
+    - care plan
+        - ilość wizyt per day
+        - taski
+    - umowy z pacjentami
+- kartoteka carerów
+    - personal info
+        - godziny pracy
+        - certyfikaty/uprawnienia
+    - harmonogram wizyt
+- system harmonogramowania wizyt carerów u pacjentów
+    - dopasowywanie dostępności carerów do planów pacjentów z uwzględniem lokalizacji carerów w danym dniu
+    - uwzględnienie lokalizacji carerów i pacjentów
+    - uwzględnienie dostępności carerów w danym dniu (urlopy, godziny pracy)
+    - uwzględnienie care planów pacjentów
+    - planowanie wizyt manualne i automatyczne
+    - planowanie równomiernie pomiędzy dostępnymi carerami, tak aby każdy miał podobną liczbę wizyt
+- katalog rodzajów wizyt
+    - carers_required
+        - double-handed - potrzeba dwóch carerów
+        - single-handed - potrzeba jednego carera
+    - duration
+        - long visit - 60 min
+        - short visit - 30 min
+        - welfare check visit - 15 min
+    - day period
+        - morning 7-11
+        - lunch 12-14
+        - tea-time 15:30-18
+        - bed-time 19-22
+- katalog tasków wykonywanych podczas wizyt u pacjenta
+
+Chcemy mieć podsystem umożliwiający zamawianie konkretnych wizyt z katalogu firmy przez zarejestrowanych pacjentów, jak i niezarejestrowanych:
+- katalog wizyt:
+    - priorytet wizyty (high, medium, low)
+    - rodzaje wizyt:
+        - wizyty "on-demand" - wszystkie wizyty nie ujęte w standardowym care planie
+        - wizyty "initial" - pierwsza wizyta dla niezarejestrowanego pacjenta, wymaga uprawnień do przeprowadzania "Initial assessment"
+    - wymagane uprawnienia carera dla takich wizyt:
+        - nie każdy carer ma uprawnienia do wykonywania takich wizyt
+    - cena wizyty:
+        - cena stała
+        - cena dynamiczna, wiliczana w zależności od: 
+            - dostępności carerów
+            - dystansu do pacjenta
+            - pory dnia (nocne wizyty droższe)
+            - rodzaju dnia (święta, dni wolne od pracy, etc)
+- sposoby podejmowania wizyt:
+    - każdy carer może podjąć się tej wizyty
+    - wizyty wyświetlane są tylko dla carerów z odpowiednimi uprawnieniami
+    - carerzy w okolicy dostają powiadomienie, widzą ogólne info o wizycie
+    - mają opcję akceptacji lub odrzucenia
+    - po akceptacji pojawia się trasa do pacjenta
+    - po akceptacji przez carera, pacjent/klient ma wgląd w ogólne info o carerze
+    - pacjent może anulować wizytę po akceptacji przez carera
+    - w zależności czy carer rozpoczął trasę do domu pacjenta czy nie, może zostać naliczone cancellation fee
